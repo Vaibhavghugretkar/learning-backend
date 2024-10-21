@@ -1,0 +1,54 @@
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment variables file
+.env
+
+# MongoDB
+data/
+*.lock
+*.log
+
+# Compiled files
+*.tsbuildinfo
+*.pyc
+*.pyo
+*.pyd
+
+# Optional
+.DS_Store
+Thumbs.db
+
+# Operating System Files
+# Windows
+*.exe
+*.dll
+*.msi
+# macOS
+.DS_Store
+
+# IDE-specific
+.idea/
+.vscode/
+
+# Coverage directory used by tools like Istanbul
+coverage/
+
+# Build output
+build/
+
+# Docker
+docker-compose.override.yml
