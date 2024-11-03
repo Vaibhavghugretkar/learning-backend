@@ -50,7 +50,7 @@ app.get("/login",async (req, res)=>{
         if(result){ 
             let token =  jwt.sign({email:email, userid: user._id}, "shhhhhhh");
             res.cookie("token", token);
-            res.status(200).send("you are logged in");
+            res.redirect('/profile');
         }
         else {
             res.redirect("/login");
@@ -67,9 +67,10 @@ app.get("/login",async (req, res)=>{
 
 //*******profile code */
 
-app.get("/profile",isLoggedIn ,(req,res)=>{
-    console.log(req.user);
-    res.render("login");
+app.get("/profile",isLoggedIn ,async (req,res)=>{
+    let user = await userModel.findOne({email:req.user.email});
+    console.log(user); 
+    res.render("profile", {user});
 })
 
 
