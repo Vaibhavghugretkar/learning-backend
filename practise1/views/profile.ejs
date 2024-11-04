@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+
+<body class="bg-zinc-900 text-white">
     <div class="w-full min-h-screen bg-zinc-900 text-white flex flex-col items-center">
         <div class="w-full flex justify-end">
-            <a href="/logout" class="bg-red-600 text-white text-center rounded-md px-3 py-2 w-1/12 mt-3 mr-3 inline-block">Logout</a>
+            <a href="/logout"
+                class="bg-red-600 text-white text-center rounded-md px-3 py-2 w-1/12 mt-3 mr-3 inline-block hover:bg-red-700">Logout</a>
         </div>
-      <h2 class="text-4xl mt-2 mb-1 text-center">Profile Page</h2>
-      <h3 class="text-2xl mb-2">Hello, <%= user.name%></h3>
-    <form  action="/login"  method="post" class="flex flex-col gap-2 justify-center align-middle w-1/3">
-       
-        <textarea placeholder="What's on your mind" class="w-full h-48 px-3 py-2 mt-8 resize-none outline-none rounded-md bg-zinc-700"></textarea>
-       
-        <input class="px-4 py-2 mt-3 justify-center items-center outline-none rounded-md bg-blue-600 hover:bg-blue-800" type="submit" value="Create post">
-    </form>
-<div class="posts mt-10">
-    <h3 class="text-center text-2xl text-zinc-400">Your posts</h3>
-    <div class="post-container mt-5 flex justify-center">
-        <div class="post w-1/3 p-4 mb-2 mr-2 rounded-md border-[1px] border-zinc-700 bg-zinc-800">
-            <h4 class="text-blue-600 tracking-tighter">@someUsername</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam adipisci minima in quod!</p>
-        </div>
+        <h2 class="text-4xl mt-2 mb-1 text-center">Profile Page</h2>
+        <h3 class="text-2xl mb-2">Hello, <%= user.name%>
+        </h3>
+        <form method="post" action="/post" method="post" class="flex flex-col gap-2 justify-center align-middle w-1/3">
 
-        <div class="post w-1/3 p-4 mb-2 rounded-md border-[1px] border-zinc-700 bg-zinc-800">
-            <h4 class="text-blue-600 tracking-tighter">@someUsername</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam adipisci minima in quod!</p>
+            <textarea placeholder="What's on your mind"
+                class="w-full h-48 px-3 py-2 mt-8 resize-none outline-none rounded-md bg-zinc-700" name="content"></textarea>
+            <input
+                class="px-4 py-2 mt-3 justify-center items-center outline-none rounded-md bg-blue-600 hover:bg-blue-800"
+                type="submit" value="Create post">
+
+        </form>
+        
+        <div class="posts mt-10 w-full flex flex-col space-x-4 justify-center items-center">
+            <h3 class="text-center text-2xl text-zinc-400">Your posts</h3>
+
+            <div class="post-container mt-5 flex flex-wrap w-3/4 justify-center gap-4">
+               <% user.posts.reverse().forEach(function (post){%>
+
+                <div class="post w-[45%] p-4 mb-2 mr-2 rounded-md border-[1px] border-zinc-700 bg-zinc-800">
+                    <h4 class="text-blue-600 tracking-tighter"><%= user.username%></h4>
+                    <p><%= post.content%></p>
+                </div>
+
+                <%})%>
+            </div>
         </div>
 
     </div>
-</div>
-
-</div>
 </body>
+
 </html>

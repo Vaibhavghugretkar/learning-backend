@@ -1,6 +1,7 @@
 const cookieParser = require('cookie-parser');
 const express= require('express');
 const userModel = require('./models/user')
+const postModel=require('./models/post');
 const app=express();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -68,13 +69,29 @@ app.get("/login",async (req, res)=>{
 //*******profile code */
 
 app.get("/profile",isLoggedIn ,async (req,res)=>{
-    let user = await userModel.findOne({email:req.user.email});
-    console.log(user); 
+    let user = await userModel.findOne({email:req.user.email}).populate("posts");
     res.render("profile", {user});
 })
 
 
-//******protected route code*/
+// ********post the blog*******//
+app.post('/post', isLoggedIn, async (req,res)=>{
+    let user= await userModel.findOne({email:req.user.email});
+    let {content} =  req.body;
+
+     let post =  await postModel.create({
+        user: user._id,
+        content:content
+    })
+
+    user.posts.push(post._id);
+    user.save();
+    res.redirect('/profile');
+
+}) 
+
+
+//******protected route code* as a middleware/
  function isLoggedIn(req,res,next){
     if(req.cookies.token=="") res.send("You must be logged in");
     else{
