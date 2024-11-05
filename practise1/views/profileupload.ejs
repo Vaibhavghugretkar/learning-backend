@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-white">
+    <div class="w-full min-h-screen bg-zinc-900 text-white flex flex-col items-center">
+        <div class="w-full flex justify-end">
+            <a href="/logout"
+                class="bg-red-600 text-white text-center rounded-md px-3 py-2 w-1/12 mt-3 mr-3 inline-block hover:bg-red-700">Logout</a>
+        </div>
+        <h2 class="text-4xl mt-2 mb-1 text-center">Update Profile Picture</h2>
+        </h3>
+        <form method="post" action="/upload" class="flex flex-col gap-2 justify-center align-middle w-1/3"
+            enctype="multipart/form-data">
+            <input type="file" class="mt-10 border-zinc-400" name="image">
+            <input
+                class="px-4 py-2 mt-3 justify-center items-center outline-none rounded-md bg-blue-600 hover:bg-blue-800"
+                type="submit" value="Update Profile Picture">
+
+        </form>
+    </div>
+</body>
+
+</html>

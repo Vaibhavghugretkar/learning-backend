@@ -10,11 +10,11 @@
     <div class="w-full min-h-screen bg-zinc-900 text-white flex flex-col justify-center items-center">
       <h2 class="text-3xl mb-3 text-center">Create Account</h2>
     <form  action="/register"  method="post" class="flex flex-col gap-2 justify-center align-middle">
-        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Name" name="name">
-        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Username" name="username">
-        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="email" placeholder="Email" name="email">
-        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="password" placeholder="Password" name="password">
-        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Age" name="age">
+        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Name" name="name" required>
+        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Username" name="username" required>
+        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="email" placeholder="Email" name="email" required>
+        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="password" placeholder="Password" name="password" required>
+        <input class="px-3 py-2 outline-none rounded-md bg-zinc-700" type="text" placeholder="Age" name="age" required>
         <input class="px-4 py-2 outline-none rounded-md bg-blue-600 hover:bg-blue-800" type="submit" value="Register">
         <a class="text-center" href="/login">Already rigistered?<span class="underline ml-2 cursor-pointer">Login</span></a>
     </form>
