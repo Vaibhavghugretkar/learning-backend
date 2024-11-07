@@ -80,7 +80,7 @@ app.get("/profile",isLoggedIn ,async (req,res)=>{
 })
 
 
-// ********post the blog*******//
+//**********post the blog**********//
 app.post('/post', isLoggedIn, async (req,res)=>{
     let user= await userModel.findOne({email:req.user.email});
     let {content} =  req.body;
@@ -140,7 +140,7 @@ app.post('/update/:id', isLoggedIn, async (req,res)=>{
  }
 
 
-// **********multer for uploading files***********//
+// **********multer for updating profile picture***********//
 
 app.get('/profile/upload', (req,res)=>{
     res.render("profileupload");
